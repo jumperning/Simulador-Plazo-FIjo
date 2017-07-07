@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Simulador de Plazos Fijos">
+    <meta name="author" content="Maximiliano Rodriguez">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Plazo Fijo - Maximiliano Rodriguez</title>
+    <link rel="stylesheet" type="text/css" href="css/style.min.css">   
+</head>
+<body>  
+<header id="header" class="home">
+  <div class="container">
+    <div class="row">
+        <div class="header-content-inner">
+           <h1>Simulador de Plazo Fijo</h1>
+      
+      </div>
+    
+    </div>
+  </div>
+</header>
+<main>
+  <div class="bannerhome">
+<h1>Bienvenido al simulador de Plazos Fijos</h1>
+</div>
+<section id="panelSimulador" class="clear">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+     <h1>Calcule su plazo fijo en el simulador del banco que usted elija.</h1>
+     <article class="col-md-6 galicia-logo">
+        <a href="plazofijo-galicia.html" title="Banco Galicia"><img src="http://biactiva.com/wp-content/uploads/2017/03/BancoGalicia-logo-300x120.png"></a>
+     </article>
+     <article class="col-md-6 santander-logo">
+        <a href="plazofijo-santander.html" title="Banco Santander"><img src="https://www.tudecide.com/assets/images/empresas/detalle/santander_3.png" ></a>
+     </article>
+     <article class="col-md-6 bna-logo">
+       <a href="plazofijo-bna.html" title="Banco Nación"><img src="http://www.arte-online.net/var/arte_online_net/storage/images/arte-online/notas/salon_nacional_de_pintura_2015_fundacion_banco_de_la_nacion_argentina/663876-1-esl-AR/Salon_Nacional_de_Pintura_2015_Fundacion_Banco_de_la_Nacion_Argentina_nota.jpg" class="bna"></a>
+     </article>
+      </div>
+    </div>
+  </div>
+</section> 
+
+</main>
+<footer>
+         <div class="container">
+            <p>&copy; 2017 . Maximiliano Rodriguez.</p>
+            <ul class="list-inline">
+                <li>
+                    <a href="#">Mail</a>
+                </li>
+                <li>
+                    <a href="#">Github</a>
+                </li>
+                <li>
+                    <a href="#">Porfolio</a>
+                </li>
+            </ul>
+        </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+
+<script> 
+$('#calcular').click(function () {
+    var deposito = $('#capital').val();
+    var tna = 18 / 100;
+    var duracion = $('#duracion').val();
+   
+    if(deposito!='' && tna!='' && duracion!=''){
+    var cf = deposito * (1 + tna * (duracion / 365));
+var interes =  cf - deposito;
+          if (cf >= 1000) {
+          $('#calc_result').text('$' + cf.toFixed(2));
+          $('#calc_interes').text('$' + interes.toFixed(2));
+          $('#dias').text( duracion + ' dias');
+          $('#monto').text('$' + deposito);
+          $('#clac_error').text('');
+      } 
+      else {
+        $('#clac_error').text('$0.00');
+        $('#clac_error').text('Ingrese solo numeros.');
+        
+      }
+      
+    }else{
+        $('#clac_error').text('Complete todos los datos.');
+    }
+
+});
+</script>
+
+
+
+
+
+</body>
+</html>
